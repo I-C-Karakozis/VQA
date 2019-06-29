@@ -1,0 +1,8 @@
+*.pickle
+*.pyc
+venv/*
+
+data/*
+logging/*
+models/*
+results/*
