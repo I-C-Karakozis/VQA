@@ -117,7 +117,7 @@ def train(args, ckpt, net, device, id2answer, trainloader, testloader):
     # load the best net
     print('Best Validation Accuracy: {:.2f} attained at epoch {}'.format(best_val_acc, best_val_epoch))
     best_net_filename = os.path.join('models', ckpt)
-    net.load_state_dict(torch.load(best_net_filename))
+    net.load_state_dict(torch.load(best_net_filename, map_location=device))
 
 def evaluate(args, net, device, id2answer, testloader):
     print("EVALUATION"); print_border()
@@ -162,7 +162,7 @@ def pipeline(args):
     print_border()
     
     # load network
-    assert(args.only_img + args.only_q < 1)
+    assert(args.only_img + args.only_q <= 1)
     n_classes = args.top_n_answers
     hidden_dim = trainset.img_feat_dim // 4
     net = LSTM(torch.FloatTensor(glove), trainset.img_feat_dim, hidden_dim, 

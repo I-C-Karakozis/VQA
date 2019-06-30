@@ -18,15 +18,5 @@ cd ..
 
 # get annotations
 cd annotations
-
-wget -O train.zip https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Annotations_Train_mscoco.zip
-unzip train.zip
-rm train.zip
-mv v2_mscoco_train2014_annotations.json train_answers.json
-
-wget -O dev.zip https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Annotations_Val_mscoco.zip
-unzip dev.zip
-rm dev.zip
-mv v2_mscoco_val2014_annotations.json dev_answers.json
-
+unzip annotations.zip
 cd ..
